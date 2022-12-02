@@ -77,10 +77,6 @@ fn main() {
         })
         .map(|play| round_score(&play[0], &play[1]))
         .sum::<i32>()
-        // .fold(0, |acc, el: Vec<HandSign>| acc + roundScore(el[0], el[1]))
         ;
-    // let plays = input.split("\n");
     println!("{:?}", plays);
-    // foo("a");
-    // println!("Hello, world!");
 }
