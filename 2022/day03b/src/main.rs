@@ -14,10 +14,7 @@ fn common_item(group: &[&str]) -> char {
 }
 
 fn score_item(item: char) -> u8 {
-    println!("Scoring {:?}", item);
-    let foo: u8 = ALPHABET.chars().position(|predicate| predicate == item).unwrap().try_into().unwrap();
-    println!("Score is {foo}");
-    foo
+    ALPHABET.chars().position(|predicate| predicate == item).unwrap().try_into().unwrap()
 }
 
 fn main() {

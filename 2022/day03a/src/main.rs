@@ -10,16 +10,14 @@ fn common_item(strings: (&str, &str) ) -> char {
 }
 
 fn score_item(item: char) -> u8 {
-    println!("Scoring {:?}", item);
-    let foo: u8 = ALPHABET.chars().position(|predicate| predicate == item).unwrap().try_into().unwrap();
-    println!("Score is {foo}");
-    foo
+    ALPHABET.chars().position(|predicate| predicate == item).unwrap().try_into().unwrap()
 }
 
 fn main() {
     let input = include_str!("../input");
 
-    // Is this efficient? ¯\_(ツ)_/¯
+    // Is this efficient? ¯\_(ツ)_/¯ Needs benchmark
+    // Compiler should not have trouble fusing two loops
     // Is .map(a).map(b) more readable than .map(b(a))? Yes.
     let foo: u32 = input.lines().map(|rucksack| {
         rucksack.split_at(rucksack.len()/2)
